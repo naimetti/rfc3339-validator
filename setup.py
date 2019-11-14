@@ -12,9 +12,9 @@ requirements = [
     'six',
 ]
 
-setup_requirements = ['pytest-runner', ]
+setup_requirements = []
 
-test_requirements = ['pytest>=3', ]
+test_requirements = ['pytest>=3', 'pytest-runner']
 
 setup(
     author="Nicolas Aimetti",
