@@ -14,7 +14,7 @@ requirements = [
 
 setup_requirements = []
 
-test_requirements = ['pytest>=3', 'pytest-runner']
+test_requirements = ['pytest>=3', 'pytest-runner', 'hypothesis', 'strict_rfc3339']
 
 setup(
     author="Nicolas Aimetti",
