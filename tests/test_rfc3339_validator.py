@@ -40,7 +40,7 @@ RFC3339_REGEX_UNICODE = re.compile(RFC3339_REGEX, re.X)
 
 @pytest.mark.skipif(six.PY2, reason="Requires python3 or higher, because strftime on python 2 only supports dates "
                                     "newer than 1900")
-@given(datetime_str=st.datetimes().map(lambda d: d.strftime("%4Y-%m-%dT%H:%M:%SZ")))
+@given(datetime_str=st.datetimes().filter(lambda d: d.year > 1000).map(lambda d: d.strftime("%Y-%m-%dT%H:%M:%SZ")))
 def test_valid_dates(datetime_str):
     assert validate_rfc3339(datetime_str)
 
