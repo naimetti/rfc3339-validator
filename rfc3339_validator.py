@@ -2,7 +2,7 @@
 
 __author__ = """Nicolas Aimetti"""
 __email__ = 'naimetti@yahoo.com.ar'
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 
 import re
 import calendar
