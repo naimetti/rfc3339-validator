@@ -14,8 +14,6 @@ requirements = [
 
 setup_requirements = []
 
-test_requirements = ['pytest>=3', 'pytest-runner', 'hypothesis', 'strict_rfc3339']
-
 setup(
     author="Nicolas Aimetti",
     author_email='naimetti@yahoo.com.ar',
@@ -43,8 +41,6 @@ setup(
     name='rfc3339_validator',
     py_modules=['rfc3339_validator'],
     setup_requires=setup_requirements,
-    test_suite='tests',
-    tests_require=test_requirements,
     url='https://github.com/naimetti/rfc3339-validator',
     version='0.1.4',
     zip_safe=False,
