@@ -1,4 +1,4 @@
-pip==21.1
+pip==22.1.2
 bump2version==0.5.11
 wheel==0.33.6
 flake8==3.7.8
@@ -6,6 +6,6 @@ tox==3.14.0
 coverage==4.5.4
 twine==1.14.0
 
-pytest==4.6.5
+pytest==7.1.2
 hypothesis==4.41.3
 strict_rfc3339==0.7
