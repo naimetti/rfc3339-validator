@@ -4,7 +4,7 @@ A pure python RFC3339 validator
 
 
 [![image](https://img.shields.io/pypi/v/rfc3339_validator.svg)](https://pypi.python.org/pypi/rfc3339_validator)
-[![Build Status](https://travis-ci.org/naimetti/rfc3339-validator.svg?branch=master)](https://travis-ci.org/naimetti/rfc3339-validator)
+[![CI](https://github.com/naimetti/rfc3339-validator/actions/workflows/ci.yml/badge.svg)](https://github.com/naimetti/rfc3339-validator/actions/workflows/ci.yml)
 
 # Install
 
