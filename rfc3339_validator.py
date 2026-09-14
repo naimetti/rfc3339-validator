@@ -6,11 +6,6 @@ __version__ = '0.1.4'
 
 import re
 import calendar
-import six
-
-RFC3339_REGEX_FLAGS = 0
-if six.PY3:
-    RFC3339_REGEX_FLAGS |= re.ASCII
 
 RFC3339_REGEX = re.compile(r"""
     ^
@@ -30,7 +25,7 @@ RFC3339_REGEX = re.compile(r"""
        | [+-](?:[01]\d|2[0123]):[0-5]\d # Offset
     )
     $
-""", re.VERBOSE | RFC3339_REGEX_FLAGS)
+""", re.VERBOSE | re.ASCII)
 
 
 def validate_rfc3339(date_string):

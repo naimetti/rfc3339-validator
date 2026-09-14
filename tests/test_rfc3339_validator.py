@@ -8,7 +8,6 @@ from rfc3339_validator import validate_rfc3339
 import strict_rfc3339
 from hypothesis import given, settings, example
 import hypothesis.strategies as st
-import six
 
 # It is supposed to be used to generate both valid and invalid dates
 RFC3339_REGEX = r"""
@@ -30,16 +29,10 @@ RFC3339_REGEX = r"""
     )
     $
 """
-if six.PY3:
-    RFC3339_REGEX_FLAG = re.X | re.A
-else:
-    RFC3339_REGEX_FLAG = re.X
-RFC3339_REGEX_ASCII = re.compile(RFC3339_REGEX, RFC3339_REGEX_FLAG)
+RFC3339_REGEX_ASCII = re.compile(RFC3339_REGEX, re.X | re.A)
 RFC3339_REGEX_UNICODE = re.compile(RFC3339_REGEX, re.X)
 
 
-@pytest.mark.skipif(six.PY2, reason="Requires python3 or higher, because strftime on python 2 only supports dates "
-                                    "newer than 1900")
 @given(datetime_str=st.datetimes().filter(lambda d: d.year > 1000).map(lambda d: d.strftime("%Y-%m-%dT%H:%M:%SZ")))
 def test_valid_dates(datetime_str):
     assert validate_rfc3339(datetime_str)
