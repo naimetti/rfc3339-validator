@@ -29,7 +29,7 @@ RFC3339_REGEX = re.compile(r"""
     (?:  Z                              # UTC
        | [+-](?:[01]\d|2[0123]):[0-5]\d # Offset
     )
-    $
+    \Z
 """, re.VERBOSE | RFC3339_REGEX_FLAGS)
 
 

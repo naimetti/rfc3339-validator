@@ -38,6 +38,19 @@ RFC3339_REGEX_ASCII = re.compile(RFC3339_REGEX, RFC3339_REGEX_FLAG)
 RFC3339_REGEX_UNICODE = re.compile(RFC3339_REGEX, re.X)
 
 
+@pytest.mark.parametrize('datetime_str', [
+    '2026-10-23T15:00:00Z',
+    '2026-10-23T15:00:00.123Z',
+    '2026-10-23T23:00:00+08:00',
+    '2026-10-23T08:00:00-07:00',
+])
+@pytest.mark.parametrize('suffix, expected', [
+    ('', True), ('\n', False), ('\r\n', False), ('\n\n', False),
+])
+def test_requires_complete_timestamp(datetime_str, suffix, expected):
+    assert validate_rfc3339(datetime_str + suffix) is expected
+
+
 @pytest.mark.skipif(six.PY2, reason="Requires python3 or higher, because strftime on python 2 only supports dates "
                                     "newer than 1900")
 @given(datetime_str=st.datetimes().filter(lambda d: d.year > 1000).map(lambda d: d.strftime("%Y-%m-%dT%H:%M:%SZ")))
